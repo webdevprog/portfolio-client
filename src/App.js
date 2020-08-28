@@ -9,8 +9,7 @@ const admin = true;
 function App(props) {
   return (
     <div className="App">
-        <Route path="/admin" render={() => withLoginPage(AdminMainPage, admin)} />
-        <Route path="/login" render={() => withAdminPage(Login, admin)} />
+        <Route path="/admin" render={AdminMainPage} />
     </div>
   );
 }

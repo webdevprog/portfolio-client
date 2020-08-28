@@ -3,18 +3,15 @@ import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditBut
 import BookIcon from '@material-ui/icons/Book';
 export const PostIcon = BookIcon;
 
-export const PostList = (props) => (
-    <List {...props}>
+export const PostList = (props) => {
+    return <List {...props}>
         <Datagrid>
-            <TextField source="id" />
+            <TextField source="_id" />
             <TextField source="title" />
-            <DateField source="published_at" />
-            <TextField source="average_note" />
-            <TextField source="views" />
-            <EditButton basePath="/posts" />
+            <EditButton basePath="/project" />
         </Datagrid>
     </List>
-);
+};
 
 const PostTitle = ({ record }) => {
     return <span>Post {record ? `"${record.title}"` : ''}</span>;
@@ -23,7 +20,7 @@ const PostTitle = ({ record }) => {
 export const PostEdit = (props) => (
     <Edit title={<PostTitle />} {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" />
+            <TextInput disabled source="_id" />
             <TextInput source="title" />
             <TextInput source="teaser" options={{ multiLine: true }} />
             <TextInput multiline source="body" />
